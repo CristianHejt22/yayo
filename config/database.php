@@ -2,11 +2,20 @@
 // config/database.php
 
 class Database {
-    private $host = "localhost";
-    private $db_name = "tienda_calzado";
-    private $username = "root"; // Ajustar según el entorno local
-    private $password = ""; // Ajustar según el entorno local
+    private $host;
+    private $db_name;
+    private $username;
+    private $password;
     public $conn;
+
+    public function __construct() {
+        // En Vercel, estas variables se configurarán en las "Environment Variables" del proyecto
+        // Si no existen (ej. entorno local), usamos los valores por defecto de XAMPP
+        $this->host = getenv('DB_HOST') ?: "localhost";
+        $this->db_name = getenv('DB_NAME') ?: "tienda_calzado";
+        $this->username = getenv('DB_USER') ?: "root";
+        $this->password = getenv('DB_PASS') ?: "";
+    }
 
     public function getConnection() {
         $this->conn = null;

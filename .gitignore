@@ -1,0 +1,12 @@
+# Archivos de log
+*.log
+emails_sent_log.txt
+mp_webhook_log.txt
+
+# Carpetas y archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración IDE local (opcional)
+.vscode/
+.idea/
